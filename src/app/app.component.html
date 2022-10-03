@@ -9,6 +9,10 @@
     <div class="card-body">
       <table class="table">
         <thead>
+
+          <input type="text" id="filtro" name="filtro" placeholder="pesquisar..." (ngModelChange)="filtrarNome()"
+            [(ngModel)]="termoPesquisa" />
+
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Modelo</th>

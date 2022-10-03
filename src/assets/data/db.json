@@ -17,6 +17,18 @@
       "color": "aaa",
       "price": 33,
       "id": 4
+    },
+    {
+      "model": "teste1",
+      "color": "azuk",
+      "price": 222,
+      "id": 5
+    },
+    {
+      "model": "cintia",
+      "color": "rosa",
+      "price": 999,
+      "id": 6
     }
   ]
 }

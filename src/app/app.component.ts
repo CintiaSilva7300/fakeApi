@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CarService } from './services/car.service';
 import { Car } from './models/car';
 import { NgForm } from '@angular/forms';
@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  @Input() termoPesquisa: any = '';
 
   car = {} as Car;
   cars!: Car[];
@@ -58,4 +59,17 @@ export class AppComponent implements OnInit {
     this.car = {} as Car;
   }
 
+
+  filtrarNome() {
+    if (this.termoPesquisa.length > 2) { //filtrar apartir do segundo digito
+      this.cars = this.cars.filter((m: any) => m.model.toLowerCase().includes(this.termoPesquisa.toLowerCase()))
+    }else {
+      this.carService.getCars().subscribe((cars: Car[]) => {
+        this.cars = cars;
+      })
+    }
+
+    console.log(this.termoPesquisa);
+    console.log(this.termoPesquisa.length);
+}
 }
